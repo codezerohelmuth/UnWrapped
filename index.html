@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Permissions-Policy" content="autoplay=*, encrypted-media=*">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UnWrapped</title>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png?v=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32.png?v=1">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/icons/favicon-16.png?v=1">
+  <link rel="shortcut icon" href="./assets/icons/favicon.ico?v=1" type="image/x-icon">
+  <meta name="theme-color" content="#0a84ff">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Blur Toggle Button -->
+  <button class="blur-toggle" id="blurToggle" aria-label="Toggle background blur">
+    🔒 Blur ON
+  </button>
+
+  <!-- Search Panel -->
+  <button class="search-toggle" id="searchToggle" aria-expanded="false" aria-label="Toggle search panel">
+    🔍 Search
+  </button>
+
+  <div class="top-search-panel" id="topSearchPanel" aria-hidden="true" role="dialog" aria-label="YouTube Search">
+    <div class="controls">
+      <input 
+        id="topSearchInput" 
+        type="text"
+        placeholder="Search YouTube (title, artist...)" 
+        aria-label="Search query"
+      />
+      <button id="topSearchBtn" aria-label="Search">Search</button>
+    </div>
+    <div id="topSearchResults" class="top-search-results playlist-items" role="list"></div>
+  </div>
+
+  <div class="container">
+    <!-- Clock Section -->
+    <div class="clock-section">
+      <h2 aria-label="Current Time">‎ </h2>
+      <div class="clock" role="timer" aria-live="polite" aria-atomic="true">
+        <div>
+          <span id="hour" aria-label="Hours">00</span>
+          <span class="text">Hours</span>
+        </div>
+        <div>
+          <span id="minutes" aria-label="Minutes">00</span>
+          <span class="text">Minutes</span>
+        </div>
+        <div>
+          <span id="seconds" aria-label="Seconds">00</span>
+          <span class="text">Seconds</span>
+        </div>
+        <div>
+          <span id="ampm" aria-label="AM or PM">AM</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Player Section -->
+    <div class="player-section" id="playerSection">
+      <div class="player-wrapper" id="playerWrapper">
+        <div class="drag-handle" id="dragHandle" role="button" tabindex="0" aria-label="Drag to move player">
+          ⋮⋮ Drag to Move ⋮⋮
+        </div>
+        
+        <div class="video-container">
+          <iframe
+            id="player"
+            src=""
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            title="YouTube Video Player">
+          </iframe>
+        </div>
+
+        <div class="simple-controls">
+          <button id="playlistBtn" class="playlist-toggle" aria-expanded="false" aria-label="Toggle playlist">
+            🎵 Playlist
+          </button>
+        </div>
+
+        <!-- Playlist Panel -->
+        <div class="playlist-panel" id="playlistPanel" aria-hidden="true" role="dialog" aria-label="Video Playlist">
+          <div class="playlist-content">
+            <div class="add-video">
+              <input 
+                type="text" 
+                id="videoInput" 
+                placeholder="Paste YouTube URL or Video ID"
+                aria-label="YouTube URL or Video ID"
+              >
+              <button id="addVideoBtn" aria-label="Add video to playlist">+ Add</button>
+            </div>
+            <div class="playlist-items" id="playlistItems" role="list"></div>
+          </div>
+        </div>
+
+        <div class="resize-handle" id="resizeHandle" aria-label="Resize player"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
